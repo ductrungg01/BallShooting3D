@@ -34,6 +34,8 @@ public class Enemy : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            Destroy(collision.gameObject);
+
             if (!_isBoss)
             {
                 Destroy(gameObject);
