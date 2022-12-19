@@ -17,7 +17,7 @@ public class LightOfSight : MonoBehaviour
     Vector3[] vertices = new Vector3[4];
     Vector2[] uv = new Vector2[4];
     int[] triangles = new int[6];
-    float lightDistance = 2.5f;
+    float lightDistance = 5.5f;
     void Start()
     {
         mesh = new Mesh();
