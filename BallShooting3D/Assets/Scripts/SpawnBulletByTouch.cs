@@ -8,6 +8,9 @@ public class SpawnBulletByTouch : MonoBehaviour
     private float delayTime = 0.2f;
     private float delay = 0.0f;
 
+    [SerializeField]
+    private Animator anim;
+
     Rigidbody _mcRb;
     LightOfSight _lightOfSight;
 
@@ -45,9 +48,11 @@ public class SpawnBulletByTouch : MonoBehaviour
             {
                 //_lightOfSight.SetMcDir(lookDir);
                 _lightOfSight.SetIsShow(true);
+                anim.SetInteger("state", 1);
             } else
             {
-                _lightOfSight.SetIsShow(false); ;
+                _lightOfSight.SetIsShow(false);
+                anim.SetInteger("state", 0);
             }
         }
     }
