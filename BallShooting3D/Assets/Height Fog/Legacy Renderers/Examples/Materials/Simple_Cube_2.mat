@@ -81,7 +81,7 @@ Material:
     - _FogEmissionFalloff: 0.6
     - _FogEmissionPower: 6.5
     - _FogFalloff: 2
-    - _FogMax: 0
+    - _FogMax: 0.77
     - _FogMin: -2
     - _FogRelativeWorldOrLocal: 1
     - _FogWaveAmplitudeX: 1
