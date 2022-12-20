@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private GameObject _loaderCanvas;
     [SerializeField] private Slider _progressBar;
+    [SerializeField] private GameObject[] levels;
+
+    public bool isLoading = false;
 
     private void Awake()
     {
@@ -24,27 +27,37 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public async void LoadScene(string sceneName)
+    /// <summary>
+    /// Change Scene/Level
+    /// </summary>
+    /// <param name="level"> 0: default-> Select level scene 
+    ///                      else: load level</param>
+    public async void LoadScene(int level = 0)
     {
-        var scene = SceneManager.LoadSceneAsync(sceneName);
+        for (int i = 0; i < levels.Length; i++)
+        {
+            levels[i].SetActive(false);
+        }
 
-        scene.allowSceneActivation = false;
-
+        isLoading = true;
         _loaderCanvas.SetActive(true);
-
+        float counter = 0;
         do
         {
-            await Task.Delay(100);
-            _progressBar.value = scene.progress;
-        } while (scene.progress < 0.9f);
+            counter += 0.1f;
+            await Task.Delay(200);
+            _progressBar.value = counter;
+        } while (counter < 0.9f);
         await Task.Delay(500);
-
-        scene.allowSceneActivation = true;
         _loaderCanvas.SetActive(false);
+        isLoading = false;
+
+        
+        levels[level].SetActive(true);
     }
 
     public void BackToHome()
     {
-        LevelManager.Instance.LoadScene("LevelScene");
+        LevelManager.Instance.LoadScene(0);
     }
 }

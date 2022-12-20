@@ -24,6 +24,8 @@ public class SpawnBulletByTouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelManager.Instance.isLoading) return;
+
         delay -= Time.deltaTime;
 
         // TODO: replace user clicking on phone screen instead of mouse click
