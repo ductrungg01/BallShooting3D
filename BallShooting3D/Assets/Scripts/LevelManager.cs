@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         ChangeNowLevel(nowLevel);
+        levels[0].SetActive(true);
     }
 
     /// <summary>
@@ -61,21 +62,21 @@ public class LevelManager : MonoBehaviour
             levels[i].SetActive(false);
         }
 
+        _mainCharacter.transform.position = _mcPositions[level];
+
         isLoading = true;
         _loaderCanvas.SetActive(true);
         float counter = 0;
         do
         {
             counter += 0.1f;
-            await Task.Delay(200);
+            await Task.Delay(100);
             _progressBar.value = counter;
         } while (counter < 0.9f);
         await Task.Delay(500);
         _loaderCanvas.SetActive(false);
         isLoading = false;
 
-
-        _mainCharacter.transform.position = _mcPositions[level];
         levels[level].SetActive(true);
     }
 
