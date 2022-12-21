@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
 
     public bool isLoading = false;
 
-    private int nowLevel = 5; // 1-4: passed level (can play), nowLevel : Can play, nowLevel+1 -> end: Cannot play  
+    private int nowLevel = 7; // 1-4: passed level (can play), nowLevel : Can play, nowLevel+1 -> end: Cannot play  
 
     private void Awake()
     {

@@ -79,11 +79,6 @@ public class LightOfSight : MonoBehaviour
         };
     }
 
-    public void SetMcDir(Vector3 dir)
-    {
-        this.mcDir = dir;
-    }
-
     public void SetIsShow(bool isShow)
     {
         this._isShow = isShow;

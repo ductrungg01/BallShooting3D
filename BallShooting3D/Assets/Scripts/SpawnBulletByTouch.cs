@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnBulletByTouch : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
-    private float delayTime = 0.2f;
+    private float delayTime = 0.1f;
     private float delay = 0.0f;
 
     [SerializeField]
@@ -42,13 +42,7 @@ public class SpawnBulletByTouch : MonoBehaviour
             if (Input.GetButtonUp("Fire1") && delay <= 0)
             {
                 delay = delayTime;
-
                 SpawnBullet(lookDir);
-            }
-
-            if (Input.GetButton("Fire1"))
-            {
-                //_lightOfSight.SetMcDir(lookDir);
                 _lightOfSight.SetIsShow(true);
                 anim.SetInteger("state", 1);
             } else
