@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 48557139}
   - component: {fileID: 48557138}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BlurButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6365,7 +6365,7 @@ GameObject:
   - component: {fileID: 284823993}
   - component: {fileID: 284823992}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BlurButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8088,7 +8088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466056617844716981, guid: f68083edc1c3fd84189f64f6129fb488, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.87
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 2466056617844716981, guid: f68083edc1c3fd84189f64f6129fb488, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8096,7 +8096,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466056617844716981, guid: f68083edc1c3fd84189f64f6129fb488, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.48
+      value: -2.71
       objectReference: {fileID: 0}
     - target: {fileID: 2466056617844716981, guid: f68083edc1c3fd84189f64f6129fb488, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12532,7 +12532,7 @@ GameObject:
   - component: {fileID: 551083412}
   - component: {fileID: 551083411}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BlurButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13983,6 +13983,7 @@ GameObject:
   - component: {fileID: 620116848}
   - component: {fileID: 620116847}
   - component: {fileID: 620116846}
+  - component: {fileID: 620116845}
   m_Layer: 5
   m_Name: GoToLevel2Button
   m_TagString: Untagged
@@ -14011,6 +14012,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.20891571, y: 7.3429728}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &620116845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620116843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c1634eb5422444896c9818a529a6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurButton: {fileID: 1580471210}
 --- !u!114 &620116846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19821,6 +19835,7 @@ GameObject:
   - component: {fileID: 813987656}
   - component: {fileID: 813987655}
   - component: {fileID: 813987654}
+  - component: {fileID: 813987653}
   m_Layer: 5
   m_Name: GoToLevel7Button
   m_TagString: Untagged
@@ -19849,6 +19864,19 @@ RectTransform:
   m_AnchoredPosition: {x: -5.7125473, y: -3.8732743}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &813987653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813987651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c1634eb5422444896c9818a529a6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurButton: {fileID: 1891679814}
 --- !u!114 &813987654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27567,6 +27595,7 @@ GameObject:
   - component: {fileID: 1097997147}
   - component: {fileID: 1097997146}
   - component: {fileID: 1097997145}
+  - component: {fileID: 1097997144}
   m_Layer: 5
   m_Name: GoToLevel4Button
   m_TagString: Untagged
@@ -27595,6 +27624,19 @@ RectTransform:
   m_AnchoredPosition: {x: -5.7125473, y: 1.7000287}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1097997144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097997142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c1634eb5422444896c9818a529a6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurButton: {fileID: 284823990}
 --- !u!114 &1097997145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28120,7 +28162,7 @@ GameObject:
   - component: {fileID: 1115847703}
   - component: {fileID: 1115847702}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BlurButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28305,6 +28347,7 @@ GameObject:
   - component: {fileID: 1121683981}
   - component: {fileID: 1121683980}
   - component: {fileID: 1121683979}
+  - component: {fileID: 1121683978}
   m_Layer: 5
   m_Name: GoToLevel1Button
   m_TagString: Untagged
@@ -28333,6 +28376,19 @@ RectTransform:
   m_AnchoredPosition: {x: -5.7125473, y: 7.3429728}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1121683978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121683976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c1634eb5422444896c9818a529a6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurButton: {fileID: 1115847700}
 --- !u!114 &1121683979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28402,7 +28458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.49432346, b: 0.990566, a: 1}
+  m_Color: {r: 0, g: 0.47450984, b: 0.95294124, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -30229,6 +30285,7 @@ GameObject:
   - component: {fileID: 1192404166}
   - component: {fileID: 1192404165}
   - component: {fileID: 1192404164}
+  - component: {fileID: 1192404163}
   m_Layer: 5
   m_Name: GoToLevel3Button
   m_TagString: Untagged
@@ -30257,6 +30314,19 @@ RectTransform:
   m_AnchoredPosition: {x: 5.7823715, y: 7.3429728}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1192404163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192404161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c1634eb5422444896c9818a529a6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurButton: {fileID: 1986673603}
 --- !u!114 &1192404164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34957,6 +35027,7 @@ GameObject:
   - component: {fileID: 1416372520}
   - component: {fileID: 1416372519}
   - component: {fileID: 1416372518}
+  - component: {fileID: 1416372517}
   m_Layer: 5
   m_Name: GoToLevel5Button
   m_TagString: Untagged
@@ -34985,6 +35056,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.06958771, y: 1.7000287}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1416372517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416372515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c1634eb5422444896c9818a529a6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurButton: {fileID: 48557136}
 --- !u!114 &1416372518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40614,7 +40698,7 @@ GameObject:
   - component: {fileID: 1580471213}
   - component: {fileID: 1580471212}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BlurButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49080,7 +49164,7 @@ GameObject:
   - component: {fileID: 1891679817}
   - component: {fileID: 1891679816}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BlurButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50521,6 +50605,7 @@ MonoBehaviour:
   - {fileID: 1525822751}
   - {fileID: 632326673}
   - {fileID: 1265082594}
+  _mainCharacter: {fileID: 896803338}
   isLoading: 0
 --- !u!4 &1952262496
 Transform:
@@ -52517,7 +52602,7 @@ GameObject:
   - component: {fileID: 1986673606}
   - component: {fileID: 1986673605}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BlurButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55687,6 +55772,7 @@ GameObject:
   - component: {fileID: 2067940313}
   - component: {fileID: 2067940312}
   - component: {fileID: 2067940311}
+  - component: {fileID: 2067940310}
   m_Layer: 5
   m_Name: GoToLevel6Button
   m_TagString: Untagged
@@ -55715,6 +55801,19 @@ RectTransform:
   m_AnchoredPosition: {x: 5.852043, y: 1.699978}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2067940310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067940308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c1634eb5422444896c9818a529a6ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blurButton: {fileID: 551083409}
 --- !u!114 &2067940311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57852,7 +57951,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525488529884633411, guid: 44508cc8cf033ca44830970424b73b7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 5525488529884633411, guid: 44508cc8cf033ca44830970424b73b7e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57860,7 +57959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525488529884633411, guid: 44508cc8cf033ca44830970424b73b7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.88
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 5525488529884633411, guid: 44508cc8cf033ca44830970424b73b7e, type: 3}
       propertyPath: m_LocalRotation.w

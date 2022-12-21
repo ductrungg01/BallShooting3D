@@ -9,10 +9,6 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    [SerializeField] private GameObject _loaderCanvas;
-    [SerializeField] private Slider _progressBar;
-    [SerializeField] private GameObject[] levels;
-
     [SerializeField] private GameObject _mainCharacter;
     Vector3[] _mcPositions =
     {
@@ -26,7 +22,15 @@ public class LevelManager : MonoBehaviour
         new Vector3(3.17f, 0f, -1.65f),                 // level7
     };
 
+    [SerializeField] private GameObject _loaderCanvas;
+    [SerializeField] private Slider _progressBar;
+    [SerializeField] private GameObject[] levels;
+
+    [SerializeField] private GameObject[] levelButtons;
+
     public bool isLoading = false;
+
+    private int nowLevel = 5; // 1-4: passed level (can play), nowLevel : Can play, nowLevel+1 -> end: Cannot play  
 
     private void Awake()
     {
@@ -38,6 +42,11 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        ChangeNowLevel(nowLevel);
     }
 
     /// <summary>
@@ -73,5 +82,22 @@ public class LevelManager : MonoBehaviour
     public void BackToHome()
     {
         LevelManager.Instance.LoadScene(0);
+    }
+
+    public void ChangeNowLevel(int nowLevel)
+    {
+        this.nowLevel = nowLevel;
+
+        for (int i = 1; i < nowLevel; i++)
+        {
+            levelButtons[i].GetComponent<LevelButton>().SetState(LevelButton.LevelButtonState.PassedLevel);
+        }
+
+        levelButtons[nowLevel].GetComponent<LevelButton>().SetState(LevelButton.LevelButtonState.NowLevel);
+
+        for (int i = nowLevel + 1; i < levelButtons.Length; i++)
+        {
+            levelButtons[i].GetComponent<LevelButton>().SetState(LevelButton.LevelButtonState.CannotPlayLevel);
+        }
     }
 }
