@@ -13,6 +13,19 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Slider _progressBar;
     [SerializeField] private GameObject[] levels;
 
+    [SerializeField] private GameObject _mainCharacter;
+    Vector3[] _mcPositions =
+    {
+        new Vector3(),
+        new Vector3(0.23f, 0f, -2.66f),                 // level1
+        new Vector3(0.08f, 0f, 1.21f),                  // level2
+        new Vector3(-4f, 0f, -2.51f),                   // level3                
+        new Vector3(-3.49f, 0f, 4.61f),                 // level4
+        new Vector3(0f, 0f, 1f),                        // level5
+        new Vector3(0.04f, 0f, -2.55f),                 // level6
+        new Vector3(3.17f, 0f, -1.65f),                 // level7
+    };
+
     public bool isLoading = false;
 
     private void Awake()
@@ -52,7 +65,8 @@ public class LevelManager : MonoBehaviour
         _loaderCanvas.SetActive(false);
         isLoading = false;
 
-        
+
+        _mainCharacter.transform.position = _mcPositions[level];
         levels[level].SetActive(true);
     }
 
