@@ -17247,7 +17247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1265082595
 Transform:
   m_ObjectHideFlags: 0
@@ -28197,6 +28197,7 @@ MonoBehaviour:
   - {fileID: 2067940308}
   - {fileID: 813987651}
   isLoading: 0
+  whatLevelIsPlaying: 1
 --- !u!4 &1952262496
 Transform:
   m_ObjectHideFlags: 0

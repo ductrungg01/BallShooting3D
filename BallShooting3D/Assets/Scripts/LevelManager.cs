@@ -56,8 +56,9 @@ public class LevelManager : MonoBehaviour
 
         _mainCharacter.GetComponent<MainCharacter>().SetInitializePositionByLevel(level);
 
-        isLoading = true;
         #region Fake loading canvas
+        isLoading = true;
+
         _loaderCanvas.SetActive(true);
         float counter = 0;
         do
@@ -68,8 +69,9 @@ public class LevelManager : MonoBehaviour
         } while (counter < 0.9f);
         await Task.Delay(500);
         _loaderCanvas.SetActive(false);
-        #endregion
+
         isLoading = false;
+        #endregion
 
         levels[level].SetActive(true);
     }

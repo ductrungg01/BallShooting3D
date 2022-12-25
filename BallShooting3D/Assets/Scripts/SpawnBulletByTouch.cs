@@ -43,11 +43,14 @@ public class SpawnBulletByTouch : MonoBehaviour
             {
                 delay = delayTime;
                 SpawnBullet(lookDir);
-                _lightOfSight.SetIsShow(true);
+                _lightOfSight.SetIsShow(false);
                 anim.SetInteger("state", 1);
             } else
             {
-                _lightOfSight.SetIsShow(false);
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    _lightOfSight.SetIsShow(true);
+                }
                 anim.SetInteger("state", 0);
             }
         }
@@ -56,7 +59,7 @@ public class SpawnBulletByTouch : MonoBehaviour
     void SpawnBullet(Vector3 lookDir)
     {
         Vector3 gunPos = new Vector3(0, 0.2f, 0);
-        float bulletSpeed = 15f;
+        float bulletSpeed = 30f;
 
         // Spawn the bullet
         GameObject spawnedBullet = Instantiate(bullet, this.transform.position + gunPos, Quaternion.identity);

@@ -21,9 +21,9 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         Vector3 velo = _rb.velocity;
-        if (velo.magnitude < 20f)
+        if (velo.magnitude < 30f)
         {
-            velo *= 20f;
+            velo *= 40f;
         }
     }
 
