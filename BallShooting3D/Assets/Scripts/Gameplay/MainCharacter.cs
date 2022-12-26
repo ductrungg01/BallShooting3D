@@ -20,7 +20,7 @@ public class MainCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetInitializePositionByLevel(LevelManager.Instance.whatLevelIsPlaying);
+        SetInitializePositionByLevel(UIManager.Instance.whatLevelIsPlaying);
     }
 
     // Update is called once per frame

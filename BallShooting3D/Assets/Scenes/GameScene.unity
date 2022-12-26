@@ -6301,8 +6301,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -9686,8 +9686,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -13819,7 +13819,7 @@ GameObject:
   - component: {fileID: 1052608968}
   - component: {fileID: 1052608969}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13889,6 +13889,8 @@ Transform:
   - {fileID: 1952262496}
   - {fileID: 1424394191}
   - {fileID: 1052608968}
+  - {fileID: 1870742834}
+  - {fileID: 1639983003}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14438,8 +14440,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -15190,8 +15192,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -16178,8 +16180,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -18760,8 +18762,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -24539,12 +24541,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639983002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.118796945, y: 14.5, z: -0.7934268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1952262496}
-  m_RootOrder: 0
+  m_Father: {fileID: 1059477968}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1639983004
 MonoBehaviour:
@@ -27360,6 +27362,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2466056617844716981, guid: f68083edc1c3fd84189f64f6129fb488, type: 3}
   m_PrefabInstance: {fileID: 522529445}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1870742833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870742834}
+  - component: {fileID: 1870742835}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1870742834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870742833}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.1128994, y: -0.12558031, z: 10.248463}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1059477968}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1870742835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870742833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2fdc64e61e7fb4fb0c561574651d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCharacter: {fileID: 896803338}
+  _selectLevelPanel: {fileID: 1717273291}
+  whatLevelIsPlaying: 1
+  levels:
+  - {fileID: 0}
+  - {fileID: 1197851649}
+  - {fileID: 1722943375}
+  - {fileID: 1987978935}
+  - {fileID: 1432131995}
+  - {fileID: 1525822751}
+  - {fileID: 632326673}
+  - {fileID: 1265082594}
+  levelButtons:
+  - {fileID: 0}
+  - {fileID: 1121683976}
+  - {fileID: 620116843}
+  - {fileID: 1192404161}
+  - {fileID: 1097997142}
+  - {fileID: 1416372515}
+  - {fileID: 2067940308}
+  - {fileID: 813987651}
+  _loadingLevelCanvas: {fileID: 1693843859}
+  _progressBar: {fileID: 1145912394}
+  isLoading: 0
+  _backToSelectLevelButton: {fileID: 2068561081}
+  _pauseButton: {fileID: 0}
+  _playButton: {fileID: 0}
+  _settingButton: {fileID: 0}
+  _quitGameButton: {fileID: 0}
 --- !u!1001 &1872450487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28175,29 +28249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af26b4ee65d8394caa0c2515055b177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainCharacter: {fileID: 896803338}
-  _loaderCanvas: {fileID: 1693843859}
-  _progressBar: {fileID: 1145912394}
-  levels:
-  - {fileID: 1717273291}
-  - {fileID: 1197851649}
-  - {fileID: 1722943375}
-  - {fileID: 1987978935}
-  - {fileID: 1432131995}
-  - {fileID: 1525822751}
-  - {fileID: 632326673}
-  - {fileID: 1265082594}
-  levelButtons:
-  - {fileID: 0}
-  - {fileID: 1121683976}
-  - {fileID: 620116843}
-  - {fileID: 1192404161}
-  - {fileID: 1097997142}
-  - {fileID: 1416372515}
-  - {fileID: 2067940308}
-  - {fileID: 813987651}
-  isLoading: 0
-  whatLevelIsPlaying: 1
+  nowLevelCanPlay: 7
 --- !u!4 &1952262496
 Transform:
   m_ObjectHideFlags: 0
@@ -28208,8 +28260,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.118796945, y: 14.5, z: -0.7934268}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1639983003}
+  m_Children: []
   m_Father: {fileID: 1059477968}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32661,8 +32712,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -32724,7 +32775,7 @@ GameObject:
   - component: {fileID: 2068561084}
   - component: {fileID: 2068561083}
   m_Layer: 0
-  m_Name: BackButton
+  m_Name: BackToSelectLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32793,10 +32844,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1952262495}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: BackToHome
-        m_Mode: 1
+      - m_Target: {fileID: 1870742835}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ShowSelectLevelScreen
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

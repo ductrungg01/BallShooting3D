@@ -24,7 +24,7 @@ public class SpawnBulletByTouch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (LevelManager.Instance.isLoading) return;
+        if (UIManager.Instance.isLoading) return;
 
         delay -= Time.deltaTime;
 

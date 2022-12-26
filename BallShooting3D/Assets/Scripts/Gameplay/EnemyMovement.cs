@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (LevelManager.Instance.isLoading) return;
+        if (UIManager.Instance.isLoading) return;
 
         Vector3 pos = FindObjectOfType<MainCharacter>().transform.position;
         agent.SetDestination(pos);
