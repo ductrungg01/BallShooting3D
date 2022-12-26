@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,17 +9,30 @@ public class SliderScript : MonoBehaviour
 {
     [SerializeField] Slider _slider;
     [SerializeField] TextMeshProUGUI _textValue;
+    [SerializeField] string type;
 
     // Start is called before the first frame update
     void Start()
     {
-        _slider.value = ConfigurationUtil.BulletBounce;
+        if (type == "bounce")
+        {
+            _slider.value = ConfigurationUtil.BulletBounce;
+            _textValue.text = ConfigurationUtil.BulletBounce.ToString();
+        } else if (type == "speed")
+        {
+            _slider.value = ConfigurationUtil.BulletSpeed;
+            _textValue.text = ConfigurationUtil.BulletSpeed.ToString();
+        }
 
         _slider.onValueChanged.AddListener((v) =>
         {
             int value = (int)v;
             _textValue.text = value.ToString();
-            ConfigurationUtil.BulletBounce = value;
+
+            if (type == "bounce")
+                ConfigurationUtil.BulletBounce = value;
+            else if (type == "speed")
+                ConfigurationUtil.BulletSpeed = value;
         });
     }
 

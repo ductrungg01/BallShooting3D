@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
         {
             if (!_isBoss)
             {
+                AudioManager.Instance.PlaySoundEffect("enemy_scream");
                 Destroy(gameObject);
             } else
             {
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
                 this.transform.localScale -= new Vector3(0.06f, 0.06f, 0.06f);
                 if (_healthRemain == 0)
                 {
+                    AudioManager.Instance.PlaySoundEffect("enemy_scream");
                     Destroy(gameObject);
                 }
             }

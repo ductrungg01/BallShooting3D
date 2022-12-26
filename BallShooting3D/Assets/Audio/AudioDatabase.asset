@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37caecd41165664bbce865fd8beafab, type: 3}
   m_Name: AudioDatabase
   m_EditorClassIdentifier: 
-  _backgroundMusics: []
+  _backgroundMusics:
+  - id: bg1
+    clip: {fileID: 8300000, guid: e3f6eda1fb25b92499a57c3ec3a5d780, type: 3}
   _soundEffects:
   - id: billiard_collision
     clip: {fileID: 8300000, guid: 22081363341b3d749ac8e15b1cebcb54, type: 3}
+  - id: enemy_scream
+    clip: {fileID: 8300000, guid: 67a1c0e675969144facd8e81e2dc5051, type: 3}

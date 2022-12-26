@@ -9,6 +9,7 @@ public class Checkbox : MonoBehaviour
     [SerializeField] GameObject handle;
     [SerializeField] Sprite _checked;
     [SerializeField] Sprite _uncheck;
+    [SerializeField] string type;
 
     private void Awake()
     {
@@ -22,6 +23,15 @@ public class Checkbox : MonoBehaviour
 
     void OnClick(bool on)
     {
+        if (type == "Background music") 
+        {
+            AudioManager.Instance.SetIsPlayBackground(on);
+            AudioManager.Instance.PlayBackgroundSound("bg1");
+        } else if (type == "VFX")
+        {
+            AudioManager.Instance.SetIsPlaySoundEffect(on);
+        }
+
         handle.GetComponent<Image>().sprite = on ? _checked : _uncheck;
     }
 }

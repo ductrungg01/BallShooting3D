@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TMPro;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,6 +47,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayBackgroundSound("bg1");
         ShowHomeMenuScreen();
     }
 
