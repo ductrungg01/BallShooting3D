@@ -56,23 +56,15 @@ public class SpawnBulletByTouch : MonoBehaviour
         }
     }
 
-    void SpawnBullet(Vector3 lookDir)
+    void SpawnBullet(Vector3 bulletDir)
     {
-        Vector3 gunPos = new Vector3(0, 0.2f, 0);
-        float bulletSpeed = 30f;
+        Vector3 bulletStartHeight = new Vector3(0, 0.2f, 0);
+        bulletDir.y = 0;
 
         // Spawn the bullet
-        GameObject spawnedBullet = Instantiate(bullet, this.transform.position + gunPos, Quaternion.identity);
-
-        Vector3 bulletDir = lookDir;
-
-        // Get direction only, don't care about lenght of vector
-        bulletDir.y = 0;
-        float maxXZ = Mathf.Max(Mathf.Abs(bulletDir.x), Mathf.Abs(bulletDir.z));
-        bulletDir.x /= maxXZ;
-        bulletDir.z /= maxXZ;
+        GameObject spawnedBullet = Instantiate(bullet, this.transform.position + bulletStartHeight, Quaternion.identity);
 
         // Set bullet's velocity
-        spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir * bulletSpeed;
+        spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir.normalized * ConfigurationUtil.BulletSpeed;
     }
 }

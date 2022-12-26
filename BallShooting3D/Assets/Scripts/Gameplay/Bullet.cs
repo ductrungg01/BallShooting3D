@@ -21,9 +21,9 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         Vector3 velo = _rb.velocity;
-        if (velo.magnitude < 30f)
+        if (velo.magnitude < ConfigurationUtil.BulletSpeed)
         {
-            velo *= 40f;
+            velo *= ConfigurationUtil.BulletSpeed;
         }
     }
 

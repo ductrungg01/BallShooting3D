@@ -2157,7 +2157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5525488529564305744}
   m_LocalRotation: {x: -0.7071068, y: -5.484171e-15, z: -4.801858e-15, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 81.63265, y: 81.63265, z: 81.63265}
   m_Children: []
   m_Father: {fileID: 5525488529884633411}
@@ -2775,6 +2775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2815657095683185579, guid: 32dd563b0e9ea6c46ab1588cb16a6b64, type: 3}
+  anim: {fileID: 0}
 --- !u!1 &5525488529890771552
 GameObject:
   m_ObjectHideFlags: 0
