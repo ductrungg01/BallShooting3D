@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,22 +38,37 @@ public class UIManager : MonoBehaviour
 
     [Header("GAME FIELD")]
     [SerializeField] private GameObject _backToSelectLevelButton;
-    [SerializeField] private GameObject _pauseButton;
+    public bool isPlaying = false;
 
     [Header("HOME MENU")]
-    [SerializeField] private GameObject _playButton;
-    [SerializeField] private GameObject _settingButton;
-    [SerializeField] private GameObject _quitGameButton;
+    [SerializeField] private GameObject _homeMenuScreen;
 
-    public async void LoadScene(int level)
+    [Header("SETTING SCREEN")]
+    [SerializeField] private GameObject _settingScreen;
+
+
+    private void Start()
     {
-        #region Turn off all the level and Select Level screen
+        ShowHomeMenuScreen();
+    }
+
+    public void SetNoActiveForAll()
+    {
         _selectLevelPanel.SetActive(false);
+        _homeMenuScreen.SetActive(false);
+        _backToSelectLevelButton.SetActive(false);
+        _settingScreen.SetActive(false);
+        isPlaying = false;
+
         for (int i = 1; i < levels.Length; i++)
         {
             levels[i].SetActive(false);
         }
-        #endregion
+    }
+
+    public async void LoadScene(int level)
+    {
+        SetNoActiveForAll();
 
         _mainCharacter.GetComponent<MainCharacter>().SetInitializePositionByLevel(level);
 
@@ -75,11 +91,12 @@ public class UIManager : MonoBehaviour
 
         _backToSelectLevelButton.SetActive(true);
         levels[level].SetActive(true);
+        isPlaying = true;
     }
 
     public void ShowSelectLevelScreen(int nowLevelCanPlay = 0)
     {
-        _backToSelectLevelButton.SetActive(false);
+        SetNoActiveForAll();
 
         if (nowLevelCanPlay == 0)
         {
@@ -104,5 +121,17 @@ public class UIManager : MonoBehaviour
         #endregion
 
         _selectLevelPanel.SetActive(true);
+    }
+
+    public void ShowHomeMenuScreen()
+    {
+        SetNoActiveForAll();
+        _homeMenuScreen.SetActive(true);
+    }
+
+    public void ShowSettingScreen()
+    {
+        SetNoActiveForAll();
+        _settingScreen.SetActive(true);
     }
 }

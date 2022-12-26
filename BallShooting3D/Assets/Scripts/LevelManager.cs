@@ -26,7 +26,6 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         ChangeNowLevel(nowLevelCanPlay);
-        UIManager.Instance.ShowSelectLevelScreen(nowLevelCanPlay);
     }
 
     public void ChangeNowLevel(int nowLevelCanPlay)

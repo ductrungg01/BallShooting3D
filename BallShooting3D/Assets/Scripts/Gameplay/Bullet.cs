@@ -6,14 +6,14 @@ using UnityEngine.UIElements;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private int _bounce = 5;
+    [SerializeField] private int _bounce;
 
     Rigidbody _rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Instance.PlaySoundEffect("billiard_collision");
+        _bounce = ConfigurationUtil.BulletBounce;
         _rb = GetComponent<Rigidbody>();
     }
 
