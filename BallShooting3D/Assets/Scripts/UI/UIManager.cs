@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mainCharacter;
 
     [Header("LEVEL")]
-    public int whatLevelIsPlaying = 1;
     [SerializeField] private GameObject[] levels;
 
     [Header("LOADING")]
@@ -67,7 +66,7 @@ public class UIManager : MonoBehaviour
     {
         if (level == 0)
         {
-            level = this.whatLevelIsPlaying;
+            level = LevelManager.Instance.nowLevelCanPlay;
         }
 
         SetNoActiveForAll();
