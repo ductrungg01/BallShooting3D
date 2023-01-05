@@ -24,10 +24,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mainCharacter;
 
     [Header("LEVEL")]
-    [SerializeField] private GameObject _selectLevelPanel;
     public int whatLevelIsPlaying = 1;
     [SerializeField] private GameObject[] levels;
-    [SerializeField] private GameObject[] levelButtons;
 
     [Header("LOADING")]
     [SerializeField] private GameObject _loadingLevelCanvas;
@@ -53,11 +51,11 @@ public class UIManager : MonoBehaviour
 
     public void SetNoActiveForAll()
     {
-        _selectLevelPanel.SetActive(false);
         _homeMenuScreen.SetActive(false);
         _backToSelectLevelButton.SetActive(false);
         _settingScreen.SetActive(false);
         isPlaying = false;
+
 
         for (int i = 1; i < levels.Length; i++)
         {
@@ -67,6 +65,11 @@ public class UIManager : MonoBehaviour
 
     public async void LoadScene(int level)
     {
+        if (level == 0)
+        {
+            level = this.whatLevelIsPlaying;
+        }
+
         SetNoActiveForAll();
 
         _mainCharacter.GetComponent<MainCharacter>().SetInitializePositionByLevel(level);
@@ -89,37 +92,8 @@ public class UIManager : MonoBehaviour
         #endregion
 
         _backToSelectLevelButton.SetActive(true);
-        levels[level].SetActive(true);
+        levels[level].SetActive(true); 
         isPlaying = true;
-    }
-
-    public void ShowSelectLevelScreen(int nowLevelCanPlay = 0)
-    {
-        SetNoActiveForAll();
-
-        if (nowLevelCanPlay == 0)
-        {
-            nowLevelCanPlay = LevelManager.Instance.nowLevelCanPlay;
-        }
-
-        #region Change Button Color
-        for (int i = 1; i < nowLevelCanPlay; i++)
-        {
-            levelButtons[i].GetComponent<LevelButton>().
-                    SetState(LevelButton.LevelButtonState.PassedLevel);
-        }
-
-        levelButtons[nowLevelCanPlay].GetComponent<LevelButton>().
-                    SetState(LevelButton.LevelButtonState.NowLevel);
-
-        for (int i = nowLevelCanPlay + 1; i < levelButtons.Length; i++)
-        {
-            levelButtons[i].GetComponent<LevelButton>().
-                    SetState(LevelButton.LevelButtonState.CannotPlayLevel);
-        }
-        #endregion
-
-        _selectLevelPanel.SetActive(true);
     }
 
     public void ShowHomeMenuScreen()
