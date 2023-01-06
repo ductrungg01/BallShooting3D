@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public async void LoadScene(int level)
+    public async void LoadLevel(int level = 0)
     {
         if (level == 0)
         {
@@ -87,10 +87,10 @@ public class UIManager : MonoBehaviour
         do
         {
             counter += 0.1f;
-            await Task.Delay(100);
+            await Task.Delay(50);
             _progressBar.value = counter;
         } while (counter < 0.9f);
-        await Task.Delay(500);
+        await Task.Delay(300);
         _loadingLevelCanvas.SetActive(false);
 
         isLoading = false;

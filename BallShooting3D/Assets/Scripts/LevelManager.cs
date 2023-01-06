@@ -24,8 +24,13 @@ public class LevelManager : MonoBehaviour
     };
     public int enemyCounter = 0;
 
+    // Bullet Spawned list
+    public List<GameObject> bulletList = new List<GameObject>();
+
     
     public int levelIsPlayingRightNow = 1; // 1-4: passed level (can play), nowLevel : Can play, nowLevelCanPlay+1 -> end: Cannot play  
+    private int _maxLevel = 7;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -47,6 +52,7 @@ public class LevelManager : MonoBehaviour
     {
         this.levelIsPlayingRightNow = levelIsPlayingRightNow;
         enemyCounter = this.enemyInLevel[levelIsPlayingRightNow];
+        UIManager.Instance.LoadLevel();
     }
 
     public void KillEnemy()
@@ -56,5 +62,37 @@ public class LevelManager : MonoBehaviour
         {
             UIManager.Instance.ShowWinPanel();
         }
+    }
+
+    public void PlayNextLevel()
+    {
+        DestroyAllBullet();
+
+        if (this.levelIsPlayingRightNow == this._maxLevel)
+        {
+            return;
+        }
+
+        ChangeNowLevel(levelIsPlayingRightNow + 1);
+    }
+
+    public void PlayAgain()
+    {
+        DestroyAllBullet();
+
+        ChangeNowLevel(levelIsPlayingRightNow);
+    }
+
+    public void DestroyAllBullet()
+    {
+        for (int i = 0; i < bulletList.Count; i++)
+        {
+            if (bulletList[i] != null)
+            {
+                Destroy(bulletList[i]);
+            }
+        }
+
+        bulletList.Clear();
     }
 }

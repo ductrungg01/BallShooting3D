@@ -24,14 +24,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (other.CompareTag("MainCharacter"))
+        {
+            UIManager.Instance.ShowLosePanel();
+            Debug.Log("Game Over");
+        }
+
+        if (other.CompareTag("Bullet"))
         {
             if (!_isBoss)
             {
                 Dead();
-            } else
+            }
+            else
             {
                 _healthRemain--;
                 this.transform.localScale -= new Vector3(0.06f, 0.06f, 0.06f);
@@ -40,13 +47,7 @@ public class Enemy : MonoBehaviour
                     Dead();
                 }
             }
-            
-        } 
-        
-        if (collision.gameObject.CompareTag("MainCharacter"))
-        {
-            UIManager.Instance.ShowLosePanel();
-            Debug.Log("Game Over");
+
         }
     }
 

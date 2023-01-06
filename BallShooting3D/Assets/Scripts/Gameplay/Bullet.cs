@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LevelManager.Instance.bulletList.Add(this.gameObject);
         _bounce = ConfigurationUtil.BulletBounce;
         _rb = GetComponent<Rigidbody>();
     }
@@ -38,6 +39,11 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            
         }
     }
 
