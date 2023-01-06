@@ -10,7 +10,22 @@ public class LevelManager : MonoBehaviour
     // Singleton
     public static LevelManager Instance;
 
-    public int nowLevelCanPlay = 7; // 1-4: passed level (can play), nowLevel : Can play, nowLevelCanPlay+1 -> end: Cannot play  
+    // Enemy in a level
+    public int[] enemyInLevel =
+    {
+        0,
+        16, 
+        40,
+        33,
+        14,
+        36,
+        33,
+        22
+    };
+    public int enemyCounter = 0;
+
+    
+    public int levelIsPlayingRightNow = 1; // 1-4: passed level (can play), nowLevel : Can play, nowLevelCanPlay+1 -> end: Cannot play  
     private void Awake()
     {
         if (Instance == null)
@@ -25,11 +40,21 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeNowLevel(nowLevelCanPlay);
+        ChangeNowLevel(levelIsPlayingRightNow);
     }
 
-    public void ChangeNowLevel(int nowLevelCanPlay)
+    public void ChangeNowLevel(int levelIsPlayingRightNow)
     {
-        this.nowLevelCanPlay = nowLevelCanPlay;
+        this.levelIsPlayingRightNow = levelIsPlayingRightNow;
+        enemyCounter = this.enemyInLevel[levelIsPlayingRightNow];
+    }
+
+    public void KillEnemy()
+    {
+        this.enemyCounter--;
+        if (enemyCounter == 0)
+        {
+            UIManager.Instance.ShowWinPanel();
+        }
     }
 }

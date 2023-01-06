@@ -26,6 +26,10 @@ public class UIManager : MonoBehaviour
     [Header("LEVEL")]
     [SerializeField] private GameObject[] levels;
 
+    [Header("WIN/LOSE panel")]
+    [SerializeField] private GameObject _winPanel;
+    [SerializeField] private GameObject _losePanel;
+
     [Header("LOADING")]
     [SerializeField] private GameObject _loadingLevelCanvas;
     [SerializeField] private Slider _progressBar;
@@ -53,6 +57,8 @@ public class UIManager : MonoBehaviour
         _homeMenuScreen.SetActive(false);
         _backToSelectLevelButton.SetActive(false);
         _settingScreen.SetActive(false);
+        _winPanel.SetActive(false);
+        _losePanel.SetActive(false);
         isPlaying = false;
 
 
@@ -66,7 +72,7 @@ public class UIManager : MonoBehaviour
     {
         if (level == 0)
         {
-            level = LevelManager.Instance.nowLevelCanPlay;
+            level = LevelManager.Instance.levelIsPlayingRightNow;
         }
 
         SetNoActiveForAll();
@@ -105,5 +111,17 @@ public class UIManager : MonoBehaviour
     {
         SetNoActiveForAll();
         _settingScreen.SetActive(true);
+    }
+
+    public void ShowWinPanel()
+    {
+        SetNoActiveForAll();
+        _winPanel.SetActive(true);
+    }
+
+    public void ShowLosePanel()
+    {
+        SetNoActiveForAll();
+        _losePanel.SetActive(true);
     }
 }

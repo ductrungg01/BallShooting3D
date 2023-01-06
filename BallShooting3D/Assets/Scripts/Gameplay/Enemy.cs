@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,28 +26,34 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
         if (collision.gameObject.CompareTag("Bullet"))
         {
             if (!_isBoss)
             {
-                AudioManager.Instance.PlaySoundEffect("enemy_scream");
-                Destroy(gameObject);
+                Dead();
             } else
             {
                 _healthRemain--;
                 this.transform.localScale -= new Vector3(0.06f, 0.06f, 0.06f);
                 if (_healthRemain == 0)
                 {
-                    AudioManager.Instance.PlaySoundEffect("enemy_scream");
-                    Destroy(gameObject);
+                    Dead();
                 }
             }
             
-        } else if (collision.gameObject.CompareTag("MainCharacter"))
+        } 
+        
+        if (collision.gameObject.CompareTag("MainCharacter"))
         {
-            // TODO: Replace this to "REAL" GAMEOVER state
-            Debug.Log("GAMEOVER");
+            UIManager.Instance.ShowLosePanel();
+            Debug.Log("Game Over");
         }
+    }
+
+    void Dead()
+    {
+        LevelManager.Instance.KillEnemy();
+        AudioManager.Instance.PlaySoundEffect("enemy_scream");
+        Destroy(gameObject);
     }
 }
