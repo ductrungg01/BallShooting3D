@@ -62,7 +62,7 @@ public class UIManager : MonoBehaviour
         isPlaying = false;
 
 
-        for (int i = 1; i < levels.Length; i++)
+        for (int i = 0; i < levels.Length; i++)
         {
             levels[i].SetActive(false);
         }
@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
         {
             level = LevelManager.Instance.levelIsPlayingRightNow;
         }
+
 
         SetNoActiveForAll();
 

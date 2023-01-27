@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour
     {
         if (_isBoss == true)
         {
-            this.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            this.transform.localScale = new Vector3(1, 1, 1);
             this.GetComponent<NavMeshAgent>().speed = 1.5f;
         } else
         {
-            this.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             this.GetComponent<NavMeshAgent>().speed = 0.5f;
         }
     }
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 _healthRemain--;
-                this.transform.localScale -= new Vector3(0.06f, 0.06f, 0.06f);
+                this.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
                 if (_healthRemain == 0)
                 {
                     Dead();

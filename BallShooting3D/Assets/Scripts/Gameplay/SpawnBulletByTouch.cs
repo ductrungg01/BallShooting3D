@@ -59,7 +59,7 @@ public class SpawnBulletByTouch : MonoBehaviour
 
     void SpawnBullet(Vector3 bulletDir)
     {
-        Vector3 bulletStartHeight = new Vector3(0, 0.2f, 0);
+        Vector3 bulletStartHeight = new Vector3(0, 0.8f, 0);
         bulletDir.y = 0;
 
         // Spawn the bullet

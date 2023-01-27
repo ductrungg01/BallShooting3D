@@ -37,10 +37,10 @@ public class LightOfSight : MonoBehaviour
         {
             float angle = GetAngleFromVectorFloat(mcDir);
 
-            vertices[0] = RotatePoint(new Vector3(-0.05f, 1, 0), new Vector3(), angle);
-            vertices[1] = RotatePoint(new Vector3(-0.025f, 1, lightDistance), new Vector3(), angle);
-            vertices[2] = RotatePoint(new Vector3(0.05f, 1, 0), new Vector3(), angle);
-            vertices[3] = RotatePoint(new Vector3(0.025f, 1, lightDistance), new Vector3(), angle);
+            vertices[0] = RotatePoint(new Vector3(-0.05f, 1.5f, 0), new Vector3(), angle);
+            vertices[1] = RotatePoint(new Vector3(-0.025f, 1.5f, lightDistance), new Vector3(), angle);
+            vertices[2] = RotatePoint(new Vector3(0.05f, 1.5f, 0), new Vector3(), angle);
+            vertices[3] = RotatePoint(new Vector3(0.025f, 1.5f, lightDistance), new Vector3(), angle);
 
             mesh.vertices = vertices;
             mesh.uv = uv;

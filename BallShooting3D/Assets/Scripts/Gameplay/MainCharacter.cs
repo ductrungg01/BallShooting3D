@@ -7,7 +7,7 @@ public class MainCharacter : MonoBehaviour
 {
     Vector3[] _mcPositions =
     {
-        new Vector3(),
+        new Vector3(1.1f, 0.04f, 1.41f),                // tmp
         new Vector3(0.23f, 0f, -2.66f),                 // level1
         new Vector3(0.08f, 0f, 1.21f),                  // level2
         new Vector3(-4f, 0f, -2.51f),                   // level3                
@@ -32,10 +32,5 @@ public class MainCharacter : MonoBehaviour
     public void SetInitializePositionByLevel(int level)
     {
         this.transform.position = _mcPositions[level];
-    }
-
-    public static explicit operator GameObject(MainCharacter v)
-    {
-        throw new NotImplementedException();
     }
 }
