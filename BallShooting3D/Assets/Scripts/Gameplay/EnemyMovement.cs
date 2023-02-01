@@ -6,9 +6,6 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
-    private Camera cam;
-
-    [SerializeField]
     private NavMeshAgent agent;
 
     void Update()
