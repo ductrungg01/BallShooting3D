@@ -63,9 +63,13 @@ public class SpawnBulletByTouch : MonoBehaviour
         bulletDir.y = 0;
 
         // Spawn the bullet
-        GameObject spawnedBullet = Instantiate(bullet, this.transform.position + bulletStartHeight, Quaternion.identity);
+        //GameObject spawnedBullet = Instantiate(bullet, this.transform.position + bulletStartHeight, Quaternion.identity);
+
+        GameObject bullet = PoolManager.Instance.bulletPooler.OnTakeFromPool(
+                                                    this.transform.position + bulletStartHeight,
+                                                    Quaternion.identity);
 
         // Set bullet's velocity
-        spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir.normalized * ConfigurationUtil.BulletSpeed;
+        bullet.GetComponent<Rigidbody>().velocity = bulletDir.normalized * ConfigurationUtil.BulletSpeed;
     }
 }

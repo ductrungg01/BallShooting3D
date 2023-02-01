@@ -37,7 +37,8 @@ public class Bullet : MonoBehaviour
             this._bounce--;
             if (this._bounce < 0)
             {
-                Destroy(gameObject);
+                PoolManager.Instance.bulletPooler.OnReturnToPool(gameObject);
+                //Destroy(gameObject);
             }
         }
     }
