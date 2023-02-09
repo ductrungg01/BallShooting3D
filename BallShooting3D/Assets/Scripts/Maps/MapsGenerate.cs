@@ -27,9 +27,10 @@ public class MapsGenerate : MonoBehaviour
             do
             {
                 id = rand.Next(numOfCityGroup);
-            } while (isUsed[id] == false);
+            } while (isUsed[id] != false);
 
-            Instantiate(cityPrefabs[i], spawnPos[id].position, Quaternion.identity);
+            cityPrefabs[i].transform.position = spawnPos[id].position;
+            isUsed[id] = true;
         }
     }
 }
