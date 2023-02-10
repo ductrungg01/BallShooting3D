@@ -9,13 +9,16 @@ public class MapsGenerate : MonoBehaviour
     public List<GameObject> cityPrefabs = new List<GameObject>();
     public List<Transform> spawnPos = new List<Transform>();
 
+    public static MapsGenerate Instance;
+
 
     private void Awake()
     {
+        Instance = this;
         GenerateMaps();
     }
 
-    void GenerateMaps()
+    public void GenerateMaps()
     {
         int numOfCityGroup = cityPrefabs.Count;
         bool[] isUsed = new bool[numOfCityGroup];

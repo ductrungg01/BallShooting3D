@@ -78,8 +78,6 @@ public class UIManager : MonoBehaviour
 
         SetNoActiveForAll();
 
-        _mainCharacter.GetComponent<MainCharacter>().SetInitializePositionByLevel(level);
-
         #region Fake loading canvas
         isLoading = true;
 
