@@ -20,9 +20,6 @@ public class SpawnBulletByTouch : MonoBehaviour
 
     void Update()
     {
-        //if (UIManager.Instance.isLoading) return;
-        //if (!UIManager.Instance.isPlaying) return;
-
         delay -= Time.deltaTime;
 
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);

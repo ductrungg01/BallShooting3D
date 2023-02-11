@@ -64,4 +64,12 @@ public class ObjectPooler : MonoBehaviour
         go.transform.parent = CollapsePollerGO.transform;
         go.SetActive(false);
     }
+
+    public void OnReturnAll()
+    {
+        foreach (var item in pooledObject)
+        {
+            item.SetActive(false);
+        }
+    }
 }

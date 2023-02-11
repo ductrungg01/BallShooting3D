@@ -84,15 +84,16 @@ public class GameManager : MonoBehaviour
     private async UniTask RoundStarting()
     {
         MapsGenerate.Instance.GenerateMaps();
+        PoolManager.Instance.bulletPooler.OnReturnAll();
         ResetAll();
         DisableEnemy();
 
         _levelText.text = "Level " + _level;
         _messageText.text = "READY...";
 
-        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        await UniTask.Delay(TimeSpan.FromSeconds(_startDelay));
 
-        _messageText.text = "GOOO!";
+        _messageText.text = "GO!";
 
         await UniTask.Delay(TimeSpan.FromSeconds(_startDelay));
     }
