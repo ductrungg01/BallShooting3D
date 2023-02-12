@@ -1231,6 +1231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isBoss: 0
+  _anim: {fileID: 0}
+  speedForBoss: 1
+  speedForNormal: 0.5
 --- !u!114 &4670015503702474511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,7 +1257,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 3.5
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

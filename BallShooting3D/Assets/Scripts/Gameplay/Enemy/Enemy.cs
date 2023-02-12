@@ -6,27 +6,33 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]
-    private bool _isBoss = false;
+    public bool _isBoss = false;
+    public Animator _anim;
     private int _healthRemain = 10; // for boss only
+
+    public float speedForBoss = 1f;
+    public float speedForNormal = 0.5f;
 
     void Start()
     {
         if (_isBoss == true)
         {
-            this.GetComponent<NavMeshAgent>().speed = 2.5f;
+            this.GetComponent<NavMeshAgent>().speed = speedForBoss;
         } else
         {
-            this.GetComponent<NavMeshAgent>().speed = 1.5f;
+            this.GetComponent<NavMeshAgent>().speed = speedForNormal;
         }
+
+        _anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("MainCharacter"))
         {
-            //UIManager.Instance.ShowLosePanel();
+            _anim.SetInteger("state", 1);
             Debug.Log("Game Over");
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("Bullet"))
