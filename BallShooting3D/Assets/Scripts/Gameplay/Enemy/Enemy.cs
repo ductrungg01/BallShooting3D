@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -54,9 +55,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Dead()
+    private async UniTask Dead()
     {
         AudioManager.Instance.PlaySoundEffect("enemy_scream");
+        
+        _anim.SetInteger("state", 2);
+        
+        await UniTask.Delay(TimeSpan.FromSeconds(1f));
+        
         this.gameObject.SetActive(false);
     }
 }
