@@ -62,7 +62,8 @@ public class Boost : MonoBehaviour
 
         for (int i = 0; i < _boostValue; i++)
         {
-            GameObject spawnedBullet = Instantiate(_bullet, position, Quaternion.identity);
+            //GameObject spawnedBullet = Instantiate(_bullet, position, Quaternion.identity);
+            GameObject spawnedBullet = PoolManager.Instance.bulletPooler.OnTakeFromPool(position, Quaternion.identity);
             Vector3 bulletDir = GetRandomDir();
 
             spawnedBullet.GetComponent<Rigidbody>().velocity = bulletDir * bulletSpeed;

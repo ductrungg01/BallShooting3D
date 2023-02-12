@@ -69,7 +69,7 @@ public class ObjectPooler : MonoBehaviour
     {
         foreach (var item in pooledObject)
         {
-            item.SetActive(false);
+            OnReturnToPool(item);
         }
     }
 }
