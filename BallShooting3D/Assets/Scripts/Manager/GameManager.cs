@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Net.Http.Headers;
 using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
@@ -19,7 +20,10 @@ public class GameManager : MonoBehaviour
 
     [Header("ENEMY")]
     public List<Transform> _enemyPosList = new List<Transform>();
-
+    
+    [Header("BOOST")]
+    public List<Transform> _boostPosList = new List<Transform>();
+    
     [Header("DELAY")]
     public float _startDelay = 2f;
     public float _endDelay = 3f;
@@ -31,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     // 
     private int _level = 1;
+    [HideInInspector] public Vector3 _bulletHeight = new Vector3(0, 0.8f, 0);
     #endregion
 
     private void Awake()
@@ -63,6 +68,23 @@ public class GameManager : MonoBehaviour
     void DestroyAllEnemy()
     {
         EnemyManager.Instance._enemyList.Clear();
+    }
+
+    void ClearAllBoost()
+    {
+        BoostManager.Instance._boostList.Clear();
+    }
+
+    void SpawnAllBoost()
+    {
+        for (int i = 0; i < _boostPosList.Count; i++)
+        {
+            GameObject boost = Instantiate(BoostManager.Instance._boostPrefab,
+                                            _boostPosList[i].position,
+                                            Quaternion.identity);
+
+            boost.GetComponent<Boost>()._boostValue = BoostManager.Instance.getRandomBoostValue();
+        }
     }
 
     async void GameLoop()
@@ -155,6 +177,9 @@ public class GameManager : MonoBehaviour
 
         DestroyAllEnemy();
         SpawnAllEnemy();
+
+        ClearAllBoost();
+        SpawnAllBoost();
     }
 
     private void DisableShooting()
