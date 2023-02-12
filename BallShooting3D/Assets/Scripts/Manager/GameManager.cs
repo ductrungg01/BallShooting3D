@@ -83,11 +83,16 @@ public class GameManager : MonoBehaviour
 
     private async UniTask RoundStarting()
     {
+        // Generate new maps
         MapsGenerate.Instance.GenerateMaps();
+        
+        // Return all the remain bullet on the game
         PoolManager.Instance.bulletPooler.OnReturnAll();
+        
         ResetAll();
         DisableEnemy();
-
+        DisableShooting();
+        
         _levelText.text = "Level " + _level;
         _messageText.text = "READY...";
 
@@ -101,6 +106,7 @@ public class GameManager : MonoBehaviour
     private async UniTask RoundPlaying()
     {
         EnableEnemy();
+        EnableShooting();
 
         _levelText.text = string.Empty;
         _messageText.text = string.Empty;
@@ -150,6 +156,17 @@ public class GameManager : MonoBehaviour
         DestroyAllEnemy();
         SpawnAllEnemy();
     }
+
+    private void DisableShooting()
+    {
+        this._player.GetComponent<PlayerShooting>().enabled = false;
+    }
+    
+    private void EnableShooting()
+    {
+        this._player.GetComponent<PlayerShooting>().enabled = true;
+    }
+
 
     private void EnableEnemy()
     {

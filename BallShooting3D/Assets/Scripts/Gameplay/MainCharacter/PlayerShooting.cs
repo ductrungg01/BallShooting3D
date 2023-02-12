@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBulletByTouch : MonoBehaviour
+public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     private float delayTime = 0.1f;
