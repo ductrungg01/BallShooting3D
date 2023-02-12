@@ -32,20 +32,24 @@ public class PlayerShooting : MonoBehaviour
             float angle = Mathf.Atan2(lookDir.x, lookDir.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, angle, transform.rotation.z));
 
+            anim.SetInteger("state", 1);
+            
             if (Input.GetButtonUp("Fire1") && delay <= 0)
             {
                 delay = delayTime;
                 SpawnBullet(lookDir);
                 _lightOfSight.SetIsShow(false);
-                anim.SetInteger("state", 1);
             } else
             {
                 if (Input.GetButtonDown("Fire1"))
                 {
                     _lightOfSight.SetIsShow(true);
                 }
-                anim.SetInteger("state", 0);
             }
+        }
+        else
+        {
+            anim.SetInteger("state", 0);
         }
     }
 

@@ -33,7 +33,9 @@ public class Enemy : MonoBehaviour
         {
             _anim.SetInteger("state", 1);
             Debug.Log("Game Over");
-            Destroy(other.gameObject);
+            
+            // Kill the player
+            other.gameObject.GetComponent<MainCharacter>().Dead();
         }
 
         if (other.CompareTag("Bullet"))
