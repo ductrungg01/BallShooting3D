@@ -9,7 +9,7 @@ using TMPro;
 public class Boost : MonoBehaviour
 {
     [SerializeField]
-    private int _boostValue = 20;
+    public int _boostValue = 20;
     [SerializeField]
     private TextMeshProUGUI _textMeshPro;
 
@@ -22,6 +22,7 @@ public class Boost : MonoBehaviour
 
     void Start()
     {
+        this.gameObject.transform.position += GameManager.Instance._bulletHeight;
         _textMeshPro.text = _boostValue.ToString();
     }
 
