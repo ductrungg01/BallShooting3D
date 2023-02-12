@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     [Header("BOOST")]
     public List<Transform> _boostPosList = new List<Transform>();
     
+    [Header("VEHICLE")]
+    public List<VehicleStartPointInfor> _vehicleStartInforList = new List<VehicleStartPointInfor>();
+    
     [Header("DELAY")]
     public float _startDelay = 2f;
     public float _endDelay = 3f;
@@ -48,44 +51,7 @@ public class GameManager : MonoBehaviour
         GameLoop();
     }
 
-    void SpawnAllEnemy()
-    {
-        System.Random rnd = new System.Random();
-        int num = EnemyManager.Instance._enemyPrefabs.Count;
-
-        for (int i = 0; i < this._enemyPosList.Count; i++)
-        {
-            int id = rnd.Next(num);
-
-            GameObject enemy = Instantiate(EnemyManager.Instance._enemyPrefabs[id], 
-                                                _enemyPosList[i].position, 
-                                                Quaternion.identity);
-            
-            EnemyManager.Instance._enemyList.Add(enemy);
-        }
-    }
-
-    void DestroyAllEnemy()
-    {
-        EnemyManager.Instance._enemyList.Clear();
-    }
-
-    void ClearAllBoost()
-    {
-        BoostManager.Instance._boostList.Clear();
-    }
-
-    void SpawnAllBoost()
-    {
-        for (int i = 0; i < _boostPosList.Count; i++)
-        {
-            GameObject boost = Instantiate(BoostManager.Instance._boostPrefab,
-                                            _boostPosList[i].position,
-                                            Quaternion.identity);
-
-            boost.GetComponent<Boost>()._boostValue = BoostManager.Instance.getRandomBoostValue();
-        }
-    }
+    
 
     async void GameLoop()
     {
@@ -180,7 +146,91 @@ public class GameManager : MonoBehaviour
 
         ClearAllBoost();
         SpawnAllBoost();
+        
+        ClearAllVehicle();
+        SpawnAllVehicle();
     }
+
+    #region Reset
+
+    void SpawnAllEnemy()
+    {
+        System.Random rnd = new System.Random();
+        int num = EnemyManager.Instance._enemyPrefabs.Count;
+
+        for (int i = 0; i < this._enemyPosList.Count; i++)
+        {
+            int id = rnd.Next(num);
+
+            GameObject enemy = Instantiate(EnemyManager.Instance._enemyPrefabs[id], 
+                _enemyPosList[i].position, 
+                Quaternion.identity);
+            
+            EnemyManager.Instance._enemyList.Add(enemy);
+        }
+    }
+
+    void DestroyAllEnemy()
+    {
+        for (int i = 0; i < EnemyManager.Instance._enemyList.Count; i++)
+        {
+            Destroy(EnemyManager.Instance._enemyList[i]);
+        }
+        EnemyManager.Instance._enemyList.Clear();
+    }
+
+    void ClearAllBoost()
+    {
+        for (int i = 0; i < BoostManager.Instance._boostList.Count; i++)
+        {
+            Destroy(BoostManager.Instance._boostList[i]);
+        }
+        
+        BoostManager.Instance._boostList.Clear();
+    }
+
+    void SpawnAllBoost()
+    {
+        for (int i = 0; i < _boostPosList.Count; i++)
+        {
+            GameObject boost = Instantiate(BoostManager.Instance._boostPrefab,
+                _boostPosList[i].position,
+                Quaternion.identity);
+
+            boost.GetComponent<Boost>()._boostValue = BoostManager.Instance.getRandomBoostValue();
+        }
+    }
+
+    void ClearAllVehicle()
+    {
+        for (int i = 0; i < VehicleManager.Instance._vehicleList.Count; i++)
+        {
+            Destroy(VehicleManager.Instance._vehicleList[i]);
+        }
+        
+        VehicleManager.Instance._vehicleList.Clear();
+    }
+
+    void SpawnAllVehicle()
+    {
+        System.Random rnd = new System.Random();
+        int num = VehicleManager.Instance._vehiclePrefabs.Count;
+
+        for (int i = 0; i < this._vehicleStartInforList.Count; i++)
+        {
+            int id = rnd.Next(num);
+
+            GameObject vehicle = Instantiate(VehicleManager.Instance._vehiclePrefabs[id],
+                                                    _vehicleStartInforList[i].position,
+                                                    _vehicleStartInforList[i].rotation);
+
+            vehicle.GetComponent<Vehicle>()._direction = _vehicleStartInforList[i].direction;
+            
+            VehicleManager.Instance._vehicleList.Add(vehicle);
+        }
+    }
+
+    #endregion
 
     private void DisableShooting()
     {

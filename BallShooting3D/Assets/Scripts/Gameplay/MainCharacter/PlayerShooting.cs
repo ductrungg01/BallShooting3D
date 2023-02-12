@@ -48,9 +48,9 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    async UniTask SpawnBullet(Vector3 bulletDir)
+    void SpawnBullet(Vector3 bulletDir)
     {
-        Vector3 bulletStartHeight = new Vector3(0, 0.8f, 0);
+        Vector3 bulletStartHeight = GameManager.Instance._bulletHeight;
         bulletDir.y = 0;
 
         GameObject bullet = PoolManager.Instance.bulletPooler.OnTakeFromPool(
