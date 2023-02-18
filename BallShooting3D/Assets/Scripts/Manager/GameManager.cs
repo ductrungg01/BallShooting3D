@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     // 
     private int _level = 1;
-    [HideInInspector] public Vector3 _bulletHeight = new Vector3(0, 0.8f, 0);
+    public Vector3 _bulletHeight = new Vector3(0, 0.8f, 0);
     #endregion
 
     private void Awake()
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     private async UniTask RoundStarting()
     {
         // Generate new maps
-        MapsGenerate.Instance.GenerateMaps();
+        //MapsGenerate.Instance.GenerateMaps();
         
         // Return all the remain bullet on the game
         PoolManager.Instance.bulletPooler.OnReturnAll();
@@ -147,8 +147,8 @@ public class GameManager : MonoBehaviour
         ClearAllBoost();
         SpawnAllBoost();
         
-        ClearAllVehicle();
-        SpawnAllVehicle();
+        //ClearAllVehicle();
+        //SpawnAllVehicle();
     }
 
     #region Reset

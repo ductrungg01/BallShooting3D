@@ -7,14 +7,16 @@ using UnityEngine.UIElements;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private int _bounce;
+    public float _maxLifeTime = 10f;
 
     Rigidbody _rb;
 
     void Start()
     {
-        //LevelManager.Instance.bulletList.Add(this.gameObject);
         _bounce = ConfigurationUtil.BulletBounce;
         _rb = GetComponent<Rigidbody>();
+        
+        PoolManager.Instance.bulletPooler.OnReturnToPool(this.gameObject, _maxLifeTime);
     }
 
     void Update()

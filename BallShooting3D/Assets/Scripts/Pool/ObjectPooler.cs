@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
@@ -61,6 +62,14 @@ public class ObjectPooler : MonoBehaviour
 
     public void OnReturnToPool(GameObject go)
     {
+        go.transform.parent = CollapsePollerGO.transform;
+        go.SetActive(false);
+    }
+    
+    public async UniTask OnReturnToPool(GameObject go, float time)
+    {
+        await UniTask.Delay(TimeSpan.FromSeconds(time));
+
         go.transform.parent = CollapsePollerGO.transform;
         go.SetActive(false);
     }

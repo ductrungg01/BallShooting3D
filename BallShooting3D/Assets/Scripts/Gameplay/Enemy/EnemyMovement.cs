@@ -10,12 +10,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        //if (UIManager.Instance.isLoading) return;
-
         Vector3 pos = FindObjectOfType<MainCharacter>().transform.position;
         agent.SetDestination(pos);
-
-        Vector3 nowPos = transform.position;
-        this.transform.position = new Vector3(nowPos.x, 0, nowPos.z);
     }
 }

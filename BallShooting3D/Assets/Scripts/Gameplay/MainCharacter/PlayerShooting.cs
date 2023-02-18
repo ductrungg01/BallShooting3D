@@ -42,7 +42,7 @@ public class PlayerShooting : MonoBehaviour
             } else if (Input.GetButtonDown("Fire1"))
             {
                 _lightOfSight.SetIsShow(true);
-                anim.SetInteger("state", 1);
+                anim.SetInteger("state", 3);
             }
             
         }
@@ -50,6 +50,8 @@ public class PlayerShooting : MonoBehaviour
 
     void SpawnBullet(Vector3 bulletDir)
     {
+        AudioManager.Instance.PlaySoundEffect("shoot");
+        
         Vector3 bulletStartHeight = GameManager.Instance._bulletHeight;
         bulletDir.y = 0;
 

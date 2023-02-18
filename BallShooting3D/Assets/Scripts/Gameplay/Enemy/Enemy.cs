@@ -16,13 +16,13 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        if (_isBoss == true)
-        {
-            this.GetComponent<NavMeshAgent>().speed = speedForBoss;
-        } else
-        {
-            this.GetComponent<NavMeshAgent>().speed = speedForNormal;
-        }
+        // if (_isBoss == true)
+        // {
+        //     this.GetComponent<NavMeshAgent>().speed = speedForBoss;
+        // } else
+        // {
+        //     this.GetComponent<NavMeshAgent>().speed = speedForNormal;
+        // }
 
         _anim = GetComponent<Animator>();
     }

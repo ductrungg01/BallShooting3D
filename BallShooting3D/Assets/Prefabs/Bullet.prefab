@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2815657095683185579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.01, y: 1.24, z: 0.27}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bounce: 5
+  _maxLifeTime: 10
 --- !u!96 &6113335767460655398
 TrailRenderer:
   serializedVersion: 2
@@ -168,7 +169,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.5
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.15

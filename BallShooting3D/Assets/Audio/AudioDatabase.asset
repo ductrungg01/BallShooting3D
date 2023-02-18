@@ -20,3 +20,5 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 22081363341b3d749ac8e15b1cebcb54, type: 3}
   - id: enemy_scream
     clip: {fileID: 8300000, guid: 67a1c0e675969144facd8e81e2dc5051, type: 3}
+  - id: shoot
+    clip: {fileID: 8300000, guid: 613184744e94fbc418029644e033ca66, type: 3}
