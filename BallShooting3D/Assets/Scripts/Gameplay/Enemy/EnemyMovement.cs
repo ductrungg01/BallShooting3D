@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,23 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
+    public Animator anim;
 
     void Update()
     {
-        Vector3 pos = FindObjectOfType<MainCharacter>().transform.position;
-        agent.SetDestination(pos);
+        GameObject player = FindObjectOfType<MainCharacter>().gameObject;
+
+        if (player)
+        {
+            Vector3 pos = player.transform.position;
+            agent.SetDestination(pos);
+        }
+        else
+        {
+            agent.SetDestination(this.gameObject.transform.position);
+            anim.SetInteger("state", 0);
+        }
+        
     }
 }

@@ -20,12 +20,9 @@ public class GameManager : MonoBehaviour
 
     [Header("ENEMY")]
     public List<Transform> _enemyPosList = new List<Transform>();
-    
-    [Header("BOOST")]
+
+    [Header("BOOST")] 
     public List<Transform> _boostPosList = new List<Transform>();
-    
-    [Header("VEHICLE")]
-    public List<VehicleStartPointInfor> _vehicleStartInforList = new List<VehicleStartPointInfor>();
     
     [Header("DELAY")]
     public float _startDelay = 2f;
@@ -38,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     // 
     private int _level = 1;
-    public Vector3 _bulletHeight = new Vector3(0, 0.8f, 0);
+    public Vector3 _bulletHeight;
     #endregion
 
     private void Awake()
@@ -71,9 +68,6 @@ public class GameManager : MonoBehaviour
 
     private async UniTask RoundStarting()
     {
-        // Generate new maps
-        //MapsGenerate.Instance.GenerateMaps();
-        
         // Return all the remain bullet on the game
         PoolManager.Instance.bulletPooler.OnReturnAll();
         
@@ -146,9 +140,6 @@ public class GameManager : MonoBehaviour
 
         ClearAllBoost();
         SpawnAllBoost();
-        
-        //ClearAllVehicle();
-        //SpawnAllVehicle();
     }
 
     #region Reset
@@ -198,35 +189,6 @@ public class GameManager : MonoBehaviour
                 Quaternion.identity);
 
             boost.GetComponent<Boost>()._boostValue = BoostManager.Instance.getRandomBoostValue();
-        }
-    }
-
-    void ClearAllVehicle()
-    {
-        for (int i = 0; i < VehicleManager.Instance._vehicleList.Count; i++)
-        {
-            Destroy(VehicleManager.Instance._vehicleList[i]);
-        }
-        
-        VehicleManager.Instance._vehicleList.Clear();
-    }
-
-    void SpawnAllVehicle()
-    {
-        System.Random rnd = new System.Random();
-        int num = VehicleManager.Instance._vehiclePrefabs.Count;
-
-        for (int i = 0; i < this._vehicleStartInforList.Count; i++)
-        {
-            int id = rnd.Next(num);
-
-            GameObject vehicle = Instantiate(VehicleManager.Instance._vehiclePrefabs[id],
-                                                    _vehicleStartInforList[i].position,
-                                                    _vehicleStartInforList[i].rotation);
-
-            vehicle.GetComponent<Vehicle>()._direction = _vehicleStartInforList[i].direction;
-            
-            VehicleManager.Instance._vehicleList.Add(vehicle);
         }
     }
 

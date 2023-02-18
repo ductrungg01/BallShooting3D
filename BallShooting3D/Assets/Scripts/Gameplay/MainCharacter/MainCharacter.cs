@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class MainCharacter : MonoBehaviour
 {
-    void Start()
-    {
-
-    }
+    public Animator anim;
 
     void Update()
     {
@@ -29,9 +26,8 @@ public class MainCharacter : MonoBehaviour
 
     public async UniTask Dead()
     {
-        Animator animator = GetComponent<Animator>();
-        animator.SetInteger("state", 2);
-
+        anim.SetInteger("state", 2);
+        
         await UniTask.Delay(TimeSpan.FromSeconds(1));
         
         Destroy(this.gameObject);

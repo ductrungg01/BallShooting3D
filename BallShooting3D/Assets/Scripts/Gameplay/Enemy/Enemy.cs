@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public float speedForBoss = 1f;
     public float speedForNormal = 0.5f;
 
+    public bool isDead = false;
+
     void Start()
     {
         // if (_isBoss == true)
@@ -23,14 +25,17 @@ public class Enemy : MonoBehaviour
         // {
         //     this.GetComponent<NavMeshAgent>().speed = speedForNormal;
         // }
-
-        _anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("MainCharacter"))
         {
+            if (isDead)
+            {
+                return;
+            }
+            
             _anim.SetInteger("state", 1);
             Debug.Log("Game Over");
             
@@ -59,6 +64,8 @@ public class Enemy : MonoBehaviour
 
     private async UniTask Dead()
     {
+        isDead = true;
+
         AudioManager.Instance.PlaySoundEffect("enemy_scream");
         
         _anim.SetInteger("state", 2);
