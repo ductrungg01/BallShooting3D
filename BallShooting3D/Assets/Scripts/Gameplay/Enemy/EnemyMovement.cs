@@ -9,9 +9,14 @@ public class EnemyMovement : MonoBehaviour
     public NavMeshAgent agent;
     public Animator anim;
 
+    private void Start()
+    {
+        anim.SetInteger("state", 1);
+    }
+
     void Update()
     {
-        GameObject player = FindObjectOfType<MainCharacter>().gameObject;
+        GameObject player = FindObjectOfType<Player>().gameObject;
 
         if (player)
         {

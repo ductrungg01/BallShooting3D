@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,36 +12,44 @@ public class Enemy : MonoBehaviour
     public Animator _anim;
     private int _healthRemain = 10; // for boss only
 
-    public float speedForBoss = 1f;
-    public float speedForNormal = 0.5f;
-
     public bool isDead = false;
 
     void Start()
     {
-        // if (_isBoss == true)
-        // {
-        //     this.GetComponent<NavMeshAgent>().speed = speedForBoss;
-        // } else
-        // {
-        //     this.GetComponent<NavMeshAgent>().speed = speedForNormal;
-        // }
+        RandomBoss();
+
+        if (_isBoss)
+        {
+            this.transform.localScale = new Vector3(2, 2, 2);
+        }
+    }
+
+    void RandomBoss()
+    {
+        float tmp = Random.Range(0, 100);
+        
+        if (tmp < 15)
+        {
+            _isBoss = true;
+        }
+        
+        Debug.Log(tmp);
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (isDead)
+        {
+            return;
+        }
+        
         if (other.CompareTag("MainCharacter"))
         {
-            if (isDead)
-            {
-                return;
-            }
-            
-            _anim.SetInteger("state", 1);
+            _anim.SetInteger("state", 3);
             Debug.Log("Game Over");
             
             // Kill the player
-            other.gameObject.GetComponent<MainCharacter>().Dead();
+            other.gameObject.GetComponent<Player>().Dead();
         }
 
         if (other.CompareTag("Bullet"))
@@ -52,7 +61,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 _healthRemain--;
-                this.transform.localScale -= new Vector3(0.05f, 0.05f, 0.05f);
+                this.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
                 if (_healthRemain == 0)
                 {
                     Dead();
@@ -70,7 +79,7 @@ public class Enemy : MonoBehaviour
         
         _anim.SetInteger("state", 2);
         
-        await UniTask.Delay(TimeSpan.FromSeconds(1f));
+        await UniTask.Delay(TimeSpan.FromSeconds(3f));
         
         this.gameObject.SetActive(false);
     }

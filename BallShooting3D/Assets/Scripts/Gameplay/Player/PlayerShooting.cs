@@ -38,13 +38,19 @@ public class PlayerShooting : MonoBehaviour
                 delay = delayTime;
                 SpawnBullet(lookDir);
                 _lightOfSight.SetIsShow(false);
-                anim.SetInteger("state", 0);
-            } else if (Input.GetButtonDown("Fire1"))
+                
+                // Shoot
+                anim.SetInteger("state", 5);
+            } 
+            else if (Input.GetButtonDown("Fire1"))
             {
                 _lightOfSight.SetIsShow(true);
-                anim.SetInteger("state", 3);
+                
+                // Aim
+                anim.SetInteger("state", 4);
             }
-            
+        } else {
+            anim.SetInteger("state", 0);
         }
     }
 
